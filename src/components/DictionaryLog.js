@@ -26,10 +26,7 @@ const DictionaryLog = () => {
         }
     }
 
-    const handleSubmit = async(e) => {
-        e.preventDefault()
-        // no need to edit the other stuff
-
+    const handleSubmit = async(req, res) => {
         const dictNoSeverity = await getDictionary("No Severity")
         const dictLowSeverity = await getDictionary("Low Severity")
         const dictHighSeverity = await getDictionary("High Severity")
@@ -73,6 +70,8 @@ const DictionaryLog = () => {
             type: 'SET_DICTIONARY',
             payload: dicts
         })
+
+        res.status(200)  
     }
 
     return(
