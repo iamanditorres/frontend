@@ -77,7 +77,7 @@ const DictionaryLog = () => {
     return(
         <form className="create" onSubmit={handleSubmit}>
             {tweets &&
-                <button>Build Dictionaries</button>
+                <button type='button'>Build Dictionaries</button>
             }
             {dict &&
                 <Grid container>
