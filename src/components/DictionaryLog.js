@@ -27,6 +27,7 @@ const DictionaryLog = () => {
     }
 
     const handleSubmit = async(req, res) => {
+        console.log('here')
         const dictNoSeverity = await getDictionary("No Severity")
         const dictLowSeverity = await getDictionary("Low Severity")
         const dictHighSeverity = await getDictionary("High Severity")
