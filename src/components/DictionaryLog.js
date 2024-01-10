@@ -12,7 +12,9 @@ const DictionaryLog = () => {
             method: 'POST',
             body: JSON.stringify({"classification": classification}),
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                "Access-Control-Allow-Origin" : "*", 
+                "Access-Control-Allow-Credentials" : true 
             }
         })
 
