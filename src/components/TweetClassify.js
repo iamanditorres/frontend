@@ -147,6 +147,7 @@ const TweetClassify = () => {
                 if (fetchNew.ok) {
                     // use the dispatch function to update the local state
                     dispatch({type: 'SET_TWEETS', payload: newjson})
+                    console.log("updated succesfully")
                 }
             }
         }
