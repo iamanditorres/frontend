@@ -18,14 +18,15 @@ const DictionaryLog = () => {
             }
         })
 
-        const json = await response.json()
+        return response.json()
+        // const json = await response.json()
 
-        if (!response.ok){
-            setError(json.error)
-        }else{
-            setError(null)
-            return json
-        }
+        // if (!response.ok){
+        //     setError(json.error)
+        // }else{
+        //     setError(null)
+        //     return json
+        // }
     }
 
     const handleSubmit = async(req, res) => {
@@ -33,6 +34,9 @@ const DictionaryLog = () => {
         const dictNoSeverity = await getDictionary("No Severity")
         const dictLowSeverity = await getDictionary("Low Severity")
         const dictHighSeverity = await getDictionary("High Severity")
+
+        console.log(dictNoSeverity)
+        console.log("Hi")
 
         // get combination
         const dictNoSeverity_data = dictNoSeverity["data"]
@@ -73,6 +77,8 @@ const DictionaryLog = () => {
             type: 'SET_DICTIONARY',
             payload: dicts
         })
+
+
 
     }
 
