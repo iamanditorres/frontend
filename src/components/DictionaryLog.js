@@ -8,7 +8,7 @@ const DictionaryLog = () => {
     const [error, setError] = useState('')
 
     const getDictionary = async(classification) => {
-        const response = await fetch('/api/tweets/pullDictionaries', {
+        const response = await fetch('/api/tweets/pullDictionaries',  {
             method: 'POST',
             body: JSON.stringify({"classification": classification}),
             headers: {
