@@ -1,5 +1,3 @@
-require('dotenv').config()
-
 import { useState } from 'react'
 import { useTweetsContext } from '../hooks/useTweetsContext'
 import React from 'react';
@@ -20,9 +18,8 @@ const GoogleMap = () => {
         console.log("Geolocation not supported");
     }
 
-
     return (
-      <APIProvider apiKey={process.env.GOOGLEMAPAPI}>
+      <APIProvider apiKey={process.env.REACT_APP_GOOGLEMAPAPI}>
         <Map center={cur_position} zoom={10}>
           <Marker position={cur_position} />
         </Map>
