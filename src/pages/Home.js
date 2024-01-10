@@ -16,7 +16,9 @@ const Home = () => {
     // fire this function once when rendered
     useEffect(() => {
         const fetchTweets = async () => {
-            const response = await fetch('/api/tweets')
+            const response = await fetch('/api/tweets', {
+                mode:"no-cors"
+            })
             const json = await response.json()
             
             if (response.ok) {
