@@ -74,7 +74,6 @@ const DictionaryLog = () => {
             payload: dicts
         })
 
-        res.status(200)
     }
 
     return(
