@@ -1,7 +1,8 @@
+require('dotenv').config()
+
 import { useState } from 'react'
 import { useTweetsContext } from '../hooks/useTweetsContext'
 import React from 'react';
-import {createRoot} from 'react-dom/client';
 import {APIProvider, Map, Marker} from '@vis.gl/react-google-maps';
 
 const GoogleMap = () => {
@@ -21,7 +22,7 @@ const GoogleMap = () => {
 
 
     return (
-      <APIProvider apiKey={"AIzaSyA44xmzC3vZZMsYy6M9nySvZEV-iFmYx90"}>
+      <APIProvider apiKey={process.env.GOOGLEMAPAPI}>
         <Map center={cur_position} zoom={10}>
           <Marker position={cur_position} />
         </Map>
