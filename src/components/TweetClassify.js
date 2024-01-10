@@ -156,9 +156,9 @@ const TweetClassify = () => {
     return (
         <div>
             {dict &&
-                <form className="create">
+                <div className="create">
                     <button onClick={handleSubmit}>Classify Tweets</button>
-                </form>
+                </div>
             }
         </div>
     )

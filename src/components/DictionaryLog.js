@@ -71,14 +71,12 @@ const DictionaryLog = () => {
             type: 'SET_DICTIONARY',
             payload: dicts
         })
-
-        res.status(200)  
     }
 
     return(
-        <form className="create" onSubmit={handleSubmit}>
+        <div className="create" >
             {tweets &&
-                <button type='button'>Build Dictionaries</button>
+                <button onClick={handleSubmit}>Build Dictionaries</button>
             }
             {dict &&
                 <Grid container>
@@ -97,7 +95,7 @@ const DictionaryLog = () => {
                 </Grid>
             }
             
-        </form>
+        </div>
     )
 }
 
