@@ -13,11 +13,17 @@ const TweetDetails = ({ tweet }) => {
             dispatch({type: 'DELETE_TWEET', payload:json})
         }
     }
+
     return (
         <div className="tweet-details">
             <h4>{tweet.id}</h4>
             <p><strong>Text: </strong>{tweet.text}</p>
-            <p><strong>Classifcation: </strong>{tweet.classification}</p>
+            {tweet.classification &&
+                <p><strong>Classification: </strong>{tweet.classification}</p>
+            }
+            {tweet.prediction &&
+                <p><strong>Prediction: </strong>{tweet.prediction}</p>
+            }
             <p>{tweet.createdAt}</p>
             <span onClick={handleClick}>delete</span>
         </div>

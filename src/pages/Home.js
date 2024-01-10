@@ -1,15 +1,13 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 
 // components
-import TweetDetails from '../components/TweetDetails'
-import TweetAdd from '../components/TweetAdd'
-import TweetDict from '../components/TweetDict'
-import WorkoutForm  from '../components/WorkoutForm'
-import { useTweetsContext } from '../hooks/useTweetsContext'
-import DictionaryLog from '../components/DictionaryLog'
 import Tabs from '../components/Tabs'
-
-// import { useWorkoutsContext } from '../hooks/useWorkoutsContext'
+import GoogleMap from '../components/GoogleMap'
+import DictionaryLog from '../components/DictionaryLog'
+import { useTweetsContext } from '../hooks/useTweetsContext'
+import TweetDetails from '../components/TweetDetails'
+import TweetClassify from '../components/TweetClassify'
+import TweetFetch from '../components/TweetFetch'
 
 const Home = () => {
     // a global context, makes sure that the local side updates without fetching server data
@@ -33,24 +31,29 @@ const Home = () => {
     return (
         <div className="home">
             <Tabs>
-                <div label="a" className="test">
+                <div label="Google Maps">
+                    <div style={{height:"100vh", width:"100%"}}>
+                    <GoogleMap/>
+                    </div>
+                </div>
+                <div label="Tweets" className="test">
+                    <TweetFetch/>
                     <div className = "tweets">
                         {tweets && tweets.map((tweet) => (
                             <TweetDetails key={tweet._id} tweet={tweet}/>
                         ))}
                     </div>
                 </div>
-                <div label="b" className="text">
-                    Hello
-                </div>
-
-                <div label="c" className="forms">
-                    {/* <TweetAdd/> */}
-                    <TweetDict/>
-                    <br/>
+                <div label="Dictionaries" className="forms">
                     <DictionaryLog/>
-                </div>      
+                </div>
+                <div label="Classify" className="text">
+                    <TweetClassify/>
+                </div>
+                <div label="Statistics" className="text">
+                </div>
             </Tabs>
+            
         </div>
     )
 }

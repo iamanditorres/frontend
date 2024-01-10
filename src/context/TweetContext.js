@@ -7,7 +7,8 @@ export const tweetsReducer = (state, action) => {
     switch (action.type) {
         case 'SET_TWEETS' :
             return {
-                tweets: action.payload
+                tweets: action.payload,
+                dict: state.dict
             }
         case 'CREATE_TWEET' :
             return {

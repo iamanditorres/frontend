@@ -85,6 +85,7 @@ form button {
   font-family: "Poppins";
   border-radius: 4px;
   cursor: pointer;
+  width: 100%;
 }
 div.error {
   padding: 10px;
@@ -98,6 +99,7 @@ input.error {
   border: 1px solid var(--error);
 }
 
+/* for the tabs element */
 .tab-list {
   border-bottom: 1px solid #ccc;
   padding-left: 0;
@@ -114,4 +116,34 @@ input.error {
   background-color: white;
   border: solid #ccc;
   border-width: 1px 1px 0 1px;
+}
+
+/* for the table element*/
+#title {
+  text-align: center;
+  font-family: arial, sans-serif;
+}
+
+#dictionaries {
+  text-align: center;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  border: 0;
+  margin: 5px;
+  width: 95%;
+}
+
+#dictionaries td, #dictionaries th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#dictionaries tr:hover {background-color: #ddd;}
+
+#dictionaries th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: var(--primary);
+  color: white;
 }
