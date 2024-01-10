@@ -11,6 +11,7 @@ const TweetFetch = () => {
             // can return an error because of duplicate inserts
             const response = await fetch('/api/tweets/pullTweets', {
                 method: 'GET',
+                
                 mode: 'cors'
             })
 
