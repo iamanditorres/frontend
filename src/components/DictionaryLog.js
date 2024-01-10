@@ -18,7 +18,9 @@ const DictionaryLog = () => {
             }
         })
 
-        return response.json()
+        const json = await response.json()
+        return json
+
         // const json = await response.json()
 
         // if (!response.ok){
