@@ -71,6 +71,8 @@ const DictionaryLog = () => {
             type: 'SET_DICTIONARY',
             payload: dicts
         })
+
+        res.status(200)
     }
 
     return(
