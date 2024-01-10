@@ -10,9 +10,7 @@ const TweetFetch = () => {
             // try to fetch all tweets
             // can return an error because of duplicate inserts
             const response = await fetch('/api/tweets/pullTweets', {
-                method: 'GET',
-                
-                mode: 'cors'
+                method: 'GET'
             })
 
             // after trying to insert new tweets
@@ -22,7 +20,6 @@ const TweetFetch = () => {
             })
 
             const json = await fetchNew.json()
-            console.log(json)
 
             // update if fetch was successful
             if (fetchNew.ok) {

@@ -12,33 +12,27 @@ const DictionaryLog = () => {
             method: 'POST',
             body: JSON.stringify({"classification": classification}),
             headers: {
-                'Content-Type': 'application/json',
-                "Access-Control-Allow-Origin" : "*", 
-                "Access-Control-Allow-Credentials" : true 
+                'Content-Type': 'application/json'
             }
         })
 
         const json = await response.json()
-        return json
 
-        // const json = await response.json()
-
-        // if (!response.ok){
-        //     setError(json.error)
-        // }else{
-        //     setError(null)
-        //     return json
-        // }
+        if (!response.ok){
+            setError(json.error)
+        }else{
+            setError(null)
+            return json
+        }
     }
 
-    const handleSubmit = async(req, res) => {
-        console.log('here')
+    const handleSubmit = async(e) => {
+        e.preventDefault()
+        // no need to edit the other stuff
+
         const dictNoSeverity = await getDictionary("No Severity")
         const dictLowSeverity = await getDictionary("Low Severity")
         const dictHighSeverity = await getDictionary("High Severity")
-
-        console.log(dictNoSeverity)
-        console.log("Hi")
 
         // get combination
         const dictNoSeverity_data = dictNoSeverity["data"]
@@ -51,6 +45,7 @@ const DictionaryLog = () => {
         let dictAll = Object.assign({}, dictNoSeverity_data)
 
         for (let key of Object.keys(dictLowSeverity_data)){
+            console.log(key, dictLowSeverity_data[key])
             if (key in dictAll){
                 dictAll[key] = dictAll[key] + dictLowSeverity_data[key]
             }else{
@@ -59,6 +54,7 @@ const DictionaryLog = () => {
         }
 
         for (let key of Object.keys(dictHighSeverity_data)){
+            console.log(key, dictHighSeverity_data[key])
             if (key in dictAll){
                 dictAll[key] = dictAll[key] + dictHighSeverity_data[key]
             }else{
@@ -67,6 +63,8 @@ const DictionaryLog = () => {
         }
 
         let dictFinal = {data: dictAll}
+
+
 
         let dicts = {
             dictNoSeverity: dictNoSeverity,
@@ -79,15 +77,12 @@ const DictionaryLog = () => {
             type: 'SET_DICTIONARY',
             payload: dicts
         })
-
-
-
     }
 
     return(
-        <div className="create" >
+        <form className="create" onSubmit={handleSubmit}>
             {tweets &&
-                <button onClick={handleSubmit}>Build Dictionaries</button>
+                <button>Build Dictionaries</button>
             }
             {dict &&
                 <Grid container>
@@ -106,7 +101,7 @@ const DictionaryLog = () => {
                 </Grid>
             }
             
-        </div>
+        </form>
     )
 }
 
