@@ -10,7 +10,7 @@ const DictionaryLog = () => {
     const getDictionary = async(classification) => {
         console.log("[!] Trying to fetch...")
         const response = await fetch('/api/tweets/pullDictionaries',  {
-            method: 'POST',
+            method: 'GET',
             body: JSON.stringify({"classification": classification}),
             headers: {
                 'Content-Type': 'application/json'
