@@ -24,7 +24,10 @@ const TweetDetails = ({ tweet }) => {
             {tweet.prediction &&
                 <p><strong>Prediction: </strong>{tweet.prediction}</p>
             }
-            <p>{tweet.createdAt}</p>
+            {tweet.location &&
+                <p><strong>Location: </strong>{tweet.location}</p>
+            }
+            {/* <p>{tweet.createdAt}</p> */}
             <span onClick={handleClick}>delete</span>
         </div>
     )
