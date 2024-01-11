@@ -13,8 +13,6 @@ const TweetFetch = () => {
                 method: 'GET'
             })
 
-            console.log("[!] Trying to fetch ")
-
             // after trying to insert new tweets
             // try to fetch all tweets
             const fetchNew = await fetch('/api/tweets', {
